@@ -14,13 +14,16 @@ def main(page: ft.Page):
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
 
-    name_text = ft.TextField(label="Your Name", border=ft.InputBorder.NONE, filled=True, cursor_color=ft.colors.BLACK38,
-                             label_style=ft.TextStyle(color=ft.colors.BLACK38), )
-    msg_text = ft.TextField(label="Your Message/Query", max_lines=3, border=ft.InputBorder.NONE, filled=True,
-                            cursor_color=ft.colors.BLACK38, label_style=ft.TextStyle(color=ft.colors.BLACK38),
-                            )
-    mail_text = ft.TextField(label="Email id", border=ft.InputBorder.NONE, filled=True, cursor_color=ft.colors.BLACK38,
-                             label_style=ft.TextStyle(color=ft.colors.BLACK38))
+    def get_textfield(label_str, is_email=False):
+        text_cap = ft.TextCapitalization.SENTENCES
+        if is_email:
+            text_cap = ft.TextCapitalization.NONE
+        return ft.TextField(label=label_str, border=ft.InputBorder.NONE, filled=True, cursor_color=ft.colors.BLACK38,
+                             label_style=ft.TextStyle(color=ft.colors.BLACK38), capitalization=text_cap)
+  
+    name_text = get_textfield("Your Name")
+    mail_text = get_textfield("Email id", True)
+    msg_text = get_textfield("Your Message/Query")
 
     def button_clicked(e):
         is_err = False
