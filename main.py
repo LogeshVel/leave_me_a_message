@@ -42,7 +42,7 @@ def main(page: ft.Page):
 
         if not is_err:
             # send msg
-            telegram_bot.send_msg(f"Name : {name_text.value}\nEmail : {mail_text.value}\nMsg   : {msg_text.value}")
+            telegram_bot.send_msg(f"{name_text.value}\n{mail_text.value}\n\n{msg_text.value}")
             name_text.value = ""
             msg_text.value = ""
             mail_text.value = ""
@@ -67,7 +67,7 @@ def main(page: ft.Page):
                     [
                         ft.AppBar(title=ft.Text("Message Sent", style=ft.TextThemeStyle.TITLE_LARGE),
                                   bgcolor=ft.colors.SURFACE_VARIANT, center_title=True, ),
-                        ft.Text("Thanks for Leaving a message :)", style=ft.TextThemeStyle.DISPLAY_SMALL),
+                        ft.Text("Thanks for leaving a message :)", style=ft.TextThemeStyle.DISPLAY_SMALL),
                         ft.Text("Will be in touch soon...", style=ft.TextThemeStyle.TITLE_MEDIUM),
                     ],
                     horizontal_alignment=ft.CrossAxisAlignment.CENTER,
