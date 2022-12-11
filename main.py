@@ -26,21 +26,21 @@ def main(page: ft.Page):
     msg_text = get_textfield("Your Message/Query")
 
     def button_clicked(e):
-        is_err = False
+        is_null = False
         if name_text.value == "":
-            is_err = True
+            is_null = True
             name_text.error_text = "Please enter your name"
             page.update()
         if msg_text.value == "":
-            is_err = True
+            is_null = True
             msg_text.error_text = "Please enter some message :("
             page.update()
         if mail_text.value == "":
-            is_err = True
+            is_null = True
             mail_text.error_text = "Please enter your email id"
             page.update()
 
-        if not is_err:
+        if not is_null:
             # send msg
             telegram_bot.send_msg(f"{name_text.value}\n{mail_text.value}\n\n{msg_text.value}")
             name_text.value = ""
