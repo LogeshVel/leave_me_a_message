@@ -30,15 +30,13 @@ def main(page: ft.Page):
         if name_text.value == "":
             is_null = True
             name_text.error_text = "Please enter your name"
-            page.update()
         if msg_text.value == "":
             is_null = True
             msg_text.error_text = "Please enter some message :("
-            page.update()
         if mail_text.value == "":
             is_null = True
             mail_text.error_text = "Please enter your email id"
-            page.update()
+        page.update()
 
         if not is_null:
             # send msg
@@ -49,18 +47,6 @@ def main(page: ft.Page):
             name_text.error_text = None
             msg_text.error_text = None
             mail_text.error_text = None
-            page.views.clear()
-            page.views.append(
-                ft.View(
-                    "/",
-                    [
-                        main_appbar,
-                        con1
-                    ],
-                    horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                    vertical_alignment=ft.MainAxisAlignment.CENTER
-                )
-            )
             page.views.append(
                 ft.View(
                     "/done",
